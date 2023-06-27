@@ -19,7 +19,7 @@ spec:
         image: nandhini1618/sampledoc:1
         resources:
           limits:
-            memory: "1Gi"
+            memory: "500Mi"
             cpu: "250m"
         imagePullPolicy: Always
         ports:
