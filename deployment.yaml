@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-deployment
+  namespace: devcode
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: node-deployment
+  template:
+    metadata:
+      labels:
+        app: node-deployment
+    spec:
+      containers:
+      - name: node-deployment
+        image: nandhini1618/:28
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "250m"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3006
+          protocol: TCP
+        env:
+        - name: TITLE
+          value: "node"
+      imagePullSecrets:
+      - name: dockervault
